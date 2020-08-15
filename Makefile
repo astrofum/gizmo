@@ -170,9 +170,10 @@ FFTW_INCL=  -I/home/modules/software/FFTW/2.1.5-gompi-2018b/include/
 FFTW_LIBS=  -L/home/modules/software/FFTW/2.1.5-gompi-2018b/lib/
 HDF5INCL =  -I/home/modules/software/HDF5/1.10.2-gompi-2018b/include/ -DH5_USE_16_API
 HDF5LIB  =  -L/home/modules/software/HDF5/1.10.2-gompi-2018b/lib -lhdf5 -lz
+MPICHLIB =
 OPT     += -DUSE_MPI_IN_PLACE
 ## modules to load: 
-## module load intel mvapich2 gsl hdf5 fftw2
+## ml OpenMPI GSL HDF5 FFTW/2.1.5-gompi-2018b
 ##  -- performance is very similar with impi (intel-mpi) instead of mpavich2, 
 ##   if preferred use that with MPICHLIB line uncommented
 ## newest version of code needed for compatibility with calls in MPI-2 libraries
