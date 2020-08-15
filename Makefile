@@ -159,6 +159,28 @@ FINCL =
 
 
 
+#----------------------------------------------------------------------------------------------
+ifeq ($(SYSTYPE),"scicluster")
+CC       =  mpicc   # sets the C-compiler
+CXX      =  mpiCC
+OPTIMIZE =   -g -Wall -fopenmp
+GSL_INCL =  -I/home/modules/software/GSL/2.3-foss-2018b/include/
+GSL_LIBS =  -L/home/modules/software/GSL/2.3-foss-2018b/lib/
+FFTW_INCL=  -I/home/modules/software/FFTW/2.1.5-gompi-2018b/include/
+FFTW_LIBS=  -L/home/modules/software/FFTW/2.1.5-gompi-2018b/lib/
+HDF5INCL =  -I/home/modules/software/HDF5/1.10.2-gompi-2018b/include/ -DH5_USE_16_API
+HDF5LIB  =  -L/home/modules/software/HDF5/1.10.2-gompi-2018b/lib -lhdf5 -lz
+OPT     += -DUSE_MPI_IN_PLACE
+## modules to load: 
+## module load intel mvapich2 gsl hdf5 fftw2
+##  -- performance is very similar with impi (intel-mpi) instead of mpavich2, 
+##   if preferred use that with MPICHLIB line uncommented
+## newest version of code needed for compatibility with calls in MPI-2 libraries
+##
+endif
+
+
+
 
 #----------------------------------------------------------------------------------------------
 ifeq ($(SYSTYPE),"Stampede")
